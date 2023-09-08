@@ -2,7 +2,6 @@
 <wicket:extend xmlns:wicket="http://wicket.apache.org">
     <h4 class="mb-3">Fornecedores</h4>
     <form wicket:id="form">
-    <div wicket:id="successMessages" class="alert alert-success"></div>
         <div class="card">
             <div class="card-body">
                 <h6 class="card-title mb-3">Dados gerais</h6>
@@ -74,7 +73,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary float-end">Salvar</button>
+                <button type="submit" wicket:id="submit" class="btn btn-primary float-end">Salvar</button>
                 <a href="/" class="btn btn-default">Voltar</a>
             </div>
         </div>

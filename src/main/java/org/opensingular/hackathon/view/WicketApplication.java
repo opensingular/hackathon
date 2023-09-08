@@ -1,6 +1,7 @@
-package org.opensingular.hackathon.config;
+package org.opensingular.hackathon.view;
 
 import org.apache.wicket.Page;
+import org.apache.wicket.markup.head.filter.JavaScriptFilteredIntoFooterHeaderResponse;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.opensingular.hackathon.view.fornecedor.EditarFornecedorPage;
@@ -20,6 +21,11 @@ public class WicketApplication extends WebApplication {
         setUpCsp();
         setUpPages();
         setUpString();
+        setUpFooterContainer();
+    }
+
+    private void setUpFooterContainer() {
+        getHeaderResponseDecorators().add(response -> new JavaScriptFilteredIntoFooterHeaderResponse(response, "footer-container"));
     }
 
     private void setUpString() {

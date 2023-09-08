@@ -1,4 +1,4 @@
-package org.opensingular.hackathon.config;
+package org.opensingular.hackathon.view;
 
 import org.apache.wicket.protocol.http.WicketFilter;
 import org.apache.wicket.spring.SpringWebApplicationFactory;
@@ -10,7 +10,7 @@ import javax.servlet.DispatcherType;
 import java.util.EnumSet;
 
 @Configuration
-public class WicketConfiguration {
+public class WicketFilterConfiguration {
 
     @Bean
     public FilterRegistrationBean<WicketFilter> wicketFilter() {

@@ -41,6 +41,11 @@
             <artifactId>wicket-extensions</artifactId>
             <version>9.14.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>24.0.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
