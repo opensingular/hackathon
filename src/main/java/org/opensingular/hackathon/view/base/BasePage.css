@@ -1,0 +1,14 @@
+body {
+    padding-top: 3rem;
+    --bs-body-bg: rgb(250, 251, 254);
+}
+
+.card {
+    --bs-body-bg: white;
+}
+
+.feedbackPanel {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}

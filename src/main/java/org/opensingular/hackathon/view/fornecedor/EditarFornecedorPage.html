@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+    <h4 class="mb-3">Fornecedores</h4>
+    <form wicket:id="form">
+    <div wicket:id="successMessages" class="alert alert-success"></div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title mb-3">Dados gerais</h6>
+                <div class="row" wicket:id="dadosGerais">
+                    <div class="col-12 mb-3">
+                        <wicket:label for="razaoSocial" class="form-label">Razão social</wicket:label>
+                        <input wicket:id="razaoSocial"
+                               type="text"
+                               class="form-control">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <wicket:label for="cnpj" class="form-label">CNPJ</wicket:label>
+                        <input wicket:id="cnpj"
+                               type="text"
+                               class="form-control">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <wicket:label for="emailContato" class="form-label">Email para contato</wicket:label>
+                        <input wicket:id="emailContato"
+                               type="text"
+                               class="form-control"
+                               placeholder="name@example.com">
+                    </div>
+                    <div class="col-12 mb-3">
+                        <wicket:label for="atividades" class="form-label">Atividades</wicket:label>
+                        <textarea wicket:id="atividades"
+                                  rows="3"
+                                  class="form-control"></textarea>
+                    </div>
+                </div>
+                <h6 class="card-title mb-3">Endereço</h6>
+                <div class="row" wicket:id="endereco">
+                    <div class="col-4 mb-3">
+                        <wicket:label for="endereco.cep" class="form-label">CEP</wicket:label>
+                        <input wicket:id="endereco.cep"
+                               type="text"
+                               class="form-control">
+                    </div>
+                    <div class="col-8 mb-3">
+                        <wicket:label for="endereco.logradouro" class="form-label">Logradouro</wicket:label>
+                        <input wicket:id="endereco.logradouro"
+                               type="text"
+                               class="form-control">
+                    </div>
+                    <div class="col-4 mb-3">
+                        <wicket:label for="endereco.uf" class="form-label">UF</wicket:label>
+                        <input wicket:id="endereco.uf"
+                               type="text"
+                               class="form-control">
+                    </div>
+                    <div class="col-4 mb-3">
+                        <wicket:label for="endereco.localidade" class="form-label">Localidade</wicket:label>
+                        <input wicket:id="endereco.localidade"
+                               type="text"
+                               class="form-control">
+                    </div>
+                    <div class="col-4 mb-3">
+                        <wicket:label for="endereco.bairro" class="form-label">Bairro</wicket:label>
+                        <input wicket:id="endereco.bairro"
+                               type="text"
+                               class="form-control">
+                    </div>
+                    <div class="col-12 mb-3">
+                        <wicket:label for="endereco.complemento" class="form-label">Complemento</wicket:label>
+                        <textarea wicket:id="endereco.complemento"
+                                  cols="2"
+                                  class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary float-end">Salvar</button>
+                <a href="/" class="btn btn-default">Voltar</a>
+            </div>
+        </div>
+    </form>
+</wicket:extend>
