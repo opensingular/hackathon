@@ -33,7 +33,6 @@ public class WicketApplication extends WebApplication {
     }
 
     private void setUpPages() {
-        mountPage("/", ListarFornecedorPage.class);
         mountPage("/fornecedor", EditarFornecedorPage.class);
     }
 

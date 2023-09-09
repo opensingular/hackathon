@@ -10,7 +10,12 @@ import org.apache.wicket.markup.head.JavaScriptReferenceHeaderItem;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.intellij.lang.annotations.Language;
 
-public class FeedbackUsingAlertBehaviour extends Behavior {
+/**
+ * Exemplo de integração com plugin javascript
+ * <p>
+ * Alertas utilizando <a href="https://sweetalert2.github.io/">sweetalert2.github.io</a>
+ */
+public class SweetAlertFeedbackBehaviour extends Behavior {
 
     public static final String SWEETALERT_JS = "https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.all.min.js";
     public static final String SWEETALERT_CSS = "https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css";

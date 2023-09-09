@@ -7,27 +7,28 @@
                 <h6 class="card-title mb-3">Dados gerais</h6>
                 <div class="row" wicket:id="dadosGerais">
                     <div class="col-12 mb-3">
-                        <wicket:label for="razaoSocial" class="form-label">Razão social</wicket:label>
+                        <label wicket:for="razaoSocial" class="form-label required">Razão social *</label>
                         <input wicket:id="razaoSocial"
                                required
                                type="text"
                                class="form-control">
                     </div>
                     <div class="col-6 mb-3">
-                        <wicket:label for="cnpj" class="form-label">CNPJ</wicket:label>
+                        <label wicket:for="cnpj" class="form-label">CNPJ *</label>
                         <input wicket:id="cnpj"
+                               required
                                type="text"
                                class="form-control">
                     </div>
                     <div class="col-6 mb-3">
-                        <wicket:label for="emailContato" class="form-label">Email para contato</wicket:label>
+                        <label wicket:for="emailContato" class="form-label">Email para contato</label>
                         <input wicket:id="emailContato"
                                type="text"
                                class="form-control"
                                placeholder="name@example.com">
                     </div>
                     <div class="col-12 mb-3">
-                        <wicket:label for="atividades" class="form-label">Atividades</wicket:label>
+                        <label wicket:for="atividades" class="form-label">Atividades</label>
                         <textarea wicket:id="atividades"
                                   rows="3"
                                   class="form-control"></textarea>
@@ -36,37 +37,37 @@
                 <h6 class="card-title mb-3">Endereço</h6>
                 <div class="row" wicket:id="endereco">
                     <div class="col-4 mb-3">
-                        <wicket:label for="endereco.cep" class="form-label">CEP</wicket:label>
+                        <label wicket:for="endereco.cep" class="form-label">CEP</label>
                         <input wicket:id="endereco.cep"
                                type="text"
                                class="form-control">
                     </div>
                     <div class="col-8 mb-3">
-                        <wicket:label for="endereco.logradouro" class="form-label">Logradouro</wicket:label>
+                        <label wicket:for="endereco.logradouro" class="form-label">Logradouro</label>
                         <input wicket:id="endereco.logradouro"
                                type="text"
                                class="form-control">
                     </div>
                     <div class="col-4 mb-3">
-                        <wicket:label for="endereco.uf" class="form-label">UF</wicket:label>
+                        <label wicket:for="endereco.uf" class="form-label">UF</label>
                         <input wicket:id="endereco.uf"
                                type="text"
                                class="form-control">
                     </div>
                     <div class="col-4 mb-3">
-                        <wicket:label for="endereco.localidade" class="form-label">Localidade</wicket:label>
+                        <label wicket:for="endereco.localidade" class="form-label">Localidade</label>
                         <input wicket:id="endereco.localidade"
                                type="text"
                                class="form-control">
                     </div>
                     <div class="col-4 mb-3">
-                        <wicket:label for="endereco.bairro" class="form-label">Bairro</wicket:label>
+                        <label wicket:for="endereco.bairro" class="form-label">Bairro</label>
                         <input wicket:id="endereco.bairro"
                                type="text"
                                class="form-control">
                     </div>
                     <div class="col-12 mb-3">
-                        <wicket:label for="endereco.complemento" class="form-label">Complemento</wicket:label>
+                        <label wicket:for="endereco.complemento" class="form-label">Complemento</label>
                         <textarea wicket:id="endereco.complemento"
                                   cols="2"
                                   class="form-control"></textarea>

@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import org.opensingular.hackathon.entity.FornecedorEntity;
 import org.opensingular.hackathon.service.FornecedorService;
 import org.opensingular.hackathon.view.base.BasePage;
-import org.opensingular.hackathon.view.util.FeedbackUsingAlertBehaviour;
+import org.opensingular.hackathon.view.util.SweetAlertFeedbackBehaviour;
 
 public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
 
@@ -47,7 +47,7 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
         super.onInitialize();
 
         add(form = new Form<>("form", getModel()));
-        form.add(new FeedbackUsingAlertBehaviour());
+        form.add(new SweetAlertFeedbackBehaviour());
 
         WebMarkupContainer dadosGeraisGroup;
         form.add(dadosGeraisGroup = new WebMarkupContainer("dadosGerais"));
