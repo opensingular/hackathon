@@ -114,13 +114,12 @@ Durante o cadastro de um fornecedor, é necessário informar o CEP e CNPJ. Uma m
 
 - Criar uma nova classe que será um [Behavior](https://nightlies.apache.org/wicket/guide/9.x/single.html#_enriching_components_with_behaviors) do Wicket (`JQueryMaskBehaviour`).
 - Instalar a biblioteca [jQuery Mask Plugin](https://github.com/igorescobar/jQuery-Mask-Plugin). Uma dica é sobrescrever o método 'renderHead', e um exemplo de instalação está disponível na classe `SweetAlertFeedbackBehaviour`.
-- Incluir o script de inicialização também no 'renderHead'.
+- Incluir o script de inicialização também no `renderHead`.
 
 ### Qual o resultado esperado?
 
 - O campo CNPJ deve estar com a máscara aplicada automaticamente.
 - Deve ser possível adicionar máscaras de forma fácil a qualquer outro campo. Por exemplo:
-- 
     ``` java
     new TextField('cep').add(new JQueryMaskBehaviour('00000-000'));
     new TextField('cpf').add(new JQueryMaskBehaviour('000.000.000-00'));
