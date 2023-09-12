@@ -34,6 +34,7 @@ public class ListarFornecedorPage extends BasePage<Void> {
         List<IColumn<FornecedorEntity, String>> cols = new ArrayList<>();
         cols.add(new LambdaColumn<>(new Model<>("CNPJ"), "cnpj", FornecedorEntity::getCnpj));
         cols.add(new LambdaColumn<>(new Model<>("Razão social"), "razaoSocial", FornecedorEntity::getRazaoSocial));
+        cols.add(new LambdaColumn<>(new Model<>("Email"), "emailContato", FornecedorEntity::getEmailContato));
         cols.add(new LambdaColumn<>(new Model<>("Atividades"), "atividades", FornecedorEntity::getAtividades));
         cols.add(new LambdaColumn<>(new Model<>("UF"), "endereco.uf", (f) -> f.getEndereco().getUf()));
         cols.add(new LambdaColumn<>(new Model<>("Localidade"), "endereco.localidade", (f) -> f.getEndereco().getLocalidade()));
