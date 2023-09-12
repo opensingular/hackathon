@@ -48,7 +48,8 @@ O aplicativo está funcional, estamos buscando melhorias e correções para torn
 
 1. Fazer commit e push de todas as etapas do desafio. Exemplo: Danilo finalizou o desafio 1, antes de ir para etapa seguinte já faça o push das alterações!
 2. Fique atento ao tempo! Teremos pouco tempo para implementar o desafio, então é fundamental que se consiga conciliar o tempo entre desenvolver os desafios e ajudar os colegas.
-3. Não fique travado, tire suas dúvidas!
+3. O desafio está numerado de 1 a 3, mas pode ser implementado em qualquer ordem.
+4. Não fique travado, tire suas dúvidas!
 
 ## Desafio 1: Novo campo
 
