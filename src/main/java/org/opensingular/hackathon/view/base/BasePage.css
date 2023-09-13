@@ -1,5 +1,4 @@
 body {
-    padding-top: 3rem;
     --bs-body-bg: rgb(250, 251, 254);
 }
 
@@ -11,4 +10,11 @@ body {
     list-style-type: none;
     padding-left: 0;
     margin-bottom: 0;
+}
+
+header {
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #ffffff;
 }
