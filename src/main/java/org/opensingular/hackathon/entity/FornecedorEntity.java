@@ -28,6 +28,9 @@ public class FornecedorEntity implements Serializable {
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private EnderecoEntity endereco;
 
+    @Column(name = "NOME_CONTATO")
+    private String nomeContato;
+
     public Long getId() {
         return id;
     }
@@ -77,5 +80,13 @@ public class FornecedorEntity implements Serializable {
 
     public void setEndereco(EnderecoEntity endereco) {
         this.endereco = endereco;
+    }
+
+    public String getNomeContato() {
+        return nomeContato;
+    }
+
+    public void setNomeContato(String nomeContato) {
+        this.nomeContato = nomeContato;
     }
 }

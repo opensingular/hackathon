@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import org.opensingular.hackathon.entity.FornecedorEntity;
 import org.opensingular.hackathon.service.FornecedorService;
 import org.opensingular.hackathon.view.base.BasePage;
+import org.opensingular.hackathon.view.util.JQueryMaskBehaviour;
 import org.opensingular.hackathon.view.util.SweetAlertFeedbackBehaviour;
 
 public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
@@ -52,13 +53,19 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
         WebMarkupContainer dadosGeraisGroup;
         form.add(dadosGeraisGroup = new WebMarkupContainer("dadosGerais"));
         dadosGeraisGroup.queue(new TextField<>("razaoSocial"));
-        dadosGeraisGroup.queue(new TextField<>("cnpj"));
+        dadosGeraisGroup.queue(new TextField<>("nomeContato"));
+        dadosGeraisGroup.queue(new TextField<>("cnpj").add(new JQueryMaskBehaviour("00.000.000/0000-00")));
         dadosGeraisGroup.queue(new TextField<>("emailContato"));
         dadosGeraisGroup.queue(new TextArea<>("atividades"));
 
+
+        var cep = new TextField<>("endereco.cep");
+        cep.add(newBuscarPorCep());
+        cep.add(new JQueryMaskBehaviour("00000-000"));
+
         form.add(enderecoGroup = new WebMarkupContainer("endereco"));
         enderecoGroup.setOutputMarkupId(true);
-        enderecoGroup.add(new TextField<>("endereco.cep").add(newBuscarPorCep()));
+        enderecoGroup.add(cep);
         enderecoGroup.add(new TextField<>("endereco.logradouro"));
         enderecoGroup.add(new TextField<>("endereco.uf"));
         enderecoGroup.add(new TextField<>("endereco.localidade"));
@@ -85,8 +92,7 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
             @Override
             protected void onUpdate(AjaxRequestTarget target) {
                 fornecedorService.carregarPorCep(getModelObject().getEndereco());
-                //Aqui está faltando um comando para forçar a atualização da página, dica:
-                //https://nightlies.apache.org/wicket/guide/9.x/single.html#_how_to_use_ajax_components_and_behaviors
+                target.add(form);
             }
         };
     }
