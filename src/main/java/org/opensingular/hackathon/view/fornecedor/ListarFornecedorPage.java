@@ -3,15 +3,11 @@ package org.opensingular.hackathon.view.fornecedor;
 import org.apache.wicket.extensions.ajax.markup.html.repeater.data.table.AjaxFallbackDefaultDataTable;
 import org.apache.wicket.extensions.markup.html.repeater.data.grid.ICellPopulator;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.AbstractColumn;
-import org.apache.wicket.extensions.markup.html.repeater.data.table.DefaultDataTable;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.LambdaColumn;
-import org.apache.wicket.markup.html.link.Link;
-import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
-import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.opensingular.hackathon.entity.FornecedorEntity;
 import org.opensingular.hackathon.service.FornecedorService;
@@ -60,15 +56,5 @@ public class ListarFornecedorPage extends BasePage<Void> {
         };
     }
 
-    static class EditarLink extends Panel {
-        public EditarLink(String id, IModel<FornecedorEntity> model) {
-            super(id, model);
-            add(new Link<>("action", model) {
-                @Override
-                public void onClick() {
-                    setResponsePage(EditarFornecedorPage.class, new PageParameters().set("id", getModelObject().getId()));
-                }
-            });
-        }
-    }
+    
 }
