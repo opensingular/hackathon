@@ -52,6 +52,7 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
         WebMarkupContainer dadosGeraisGroup;
         form.add(dadosGeraisGroup = new WebMarkupContainer("dadosGerais"));
         dadosGeraisGroup.queue(new TextField<>("razaoSocial"));
+        dadosGeraisGroup.queue(new TextField<>("nomeContato"));
         dadosGeraisGroup.queue(new TextField<>("cnpj"));
         dadosGeraisGroup.queue(new TextField<>("emailContato"));
         dadosGeraisGroup.queue(new TextArea<>("atividades"));
