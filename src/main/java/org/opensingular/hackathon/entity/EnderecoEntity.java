@@ -12,8 +12,7 @@ public class EnderecoEntity implements Serializable {
     private Long id;
 
 
-    @Column(name = "NOME_DO_CONTATO")
-    private String NomeContato;
+
 
     @Column(name = "CEP")
     private String cep;
@@ -34,15 +33,7 @@ public class EnderecoEntity implements Serializable {
     private String uf;
 
 
-    public String getNomeContato(){
 
-        return NomeContato;
-    }
-
-
-    public void setNomeContato(String NomeContato){
-        this.NomeContato = NomeContato;
-    }
     public Long getId() {
         return id;
     }
