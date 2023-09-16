@@ -19,7 +19,14 @@ public class ViaCepIntegracaoService {
 
         var endereco = new EnderecoDTO();
         var template = new RestTemplate();
-        endereco = template.getForObject("https://viacep.com.br/ws/" + cep + "/json", endereco.getClass());
+        try {
+            endereco = template.getForObject("https://viacep.com.br/ws/" + cep + "/json", endereco.getClass());
+        }
+        catch (Exception e){
+            endereco = new EnderecoDTO();
+            endereco.setCep(cep);
+            return endereco;
+        }
         return endereco;
     }
 }
