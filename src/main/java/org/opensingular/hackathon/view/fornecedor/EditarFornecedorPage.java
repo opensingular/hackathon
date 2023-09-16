@@ -54,6 +54,7 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
         dadosGeraisGroup.queue(new TextField<>("razaoSocial"));
         dadosGeraisGroup.queue(new TextField<>("cnpj"));
         dadosGeraisGroup.queue(new TextField<>("emailContato"));
+        dadosGeraisGroup.queue(new TextField<>("nomeContato"));
         dadosGeraisGroup.queue(new TextArea<>("atividades"));
 
         form.add(enderecoGroup = new WebMarkupContainer("endereco"));

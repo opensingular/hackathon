@@ -21,6 +21,9 @@ public class FornecedorEntity implements Serializable {
     @Column(name = "EMAIL_CONTATO")
     private String emailContato;
 
+    @Column(name = "NOME_CONTATO")
+    private String nomeContato;
+
     @Column(name = "ATIVIDADES")
     private String atividades;
 
@@ -58,6 +61,14 @@ public class FornecedorEntity implements Serializable {
 
     public void setEmailContato(String emailContato) {
         this.emailContato = emailContato;
+    }
+
+    public String getNomeContato() {
+        return nomeContato;
+    }
+
+    public void setNomeContato(String nomeContato) {
+        this.nomeContato = nomeContato;
     }
 
     public String getAtividades() {
