@@ -1,6 +1,7 @@
 package org.opensingular.hackathon.model;
 
 public class EnderecoDTO {
+    private String NomeContato;
     private String cep;
     private String logradouro;
     private String complemento;
