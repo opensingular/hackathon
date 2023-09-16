@@ -7,10 +7,15 @@ import java.io.Serializable;
 @Table(name = "FORNECEDOR")
 public class FornecedorEntity implements Serializable {
 
+
+
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "NOME_DO_CONTATO")
+    private String NomeContato;
 
     @Column(name = "RAZAO_SOCIAL")
     private String razaoSocial;
@@ -28,6 +33,16 @@ public class FornecedorEntity implements Serializable {
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private EnderecoEntity endereco;
 
+
+    public String getNomeContato(){
+
+        return NomeContato;
+    }
+
+
+    public void setNomeContato(String NomeContato){
+        this.NomeContato = NomeContato;
+    }
     public Long getId() {
         return id;
     }

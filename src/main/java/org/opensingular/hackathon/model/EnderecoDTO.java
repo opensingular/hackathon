@@ -1,6 +1,8 @@
 package org.opensingular.hackathon.model;
 
 public class EnderecoDTO {
+
+    private String NomeContato;
     private String cep;
     private String logradouro;
     private String complemento;
@@ -57,5 +59,13 @@ public class EnderecoDTO {
 
     public void setUf(String uf) {
         this.uf = uf;
+    }
+
+    public String getNomeContato() {
+        return NomeContato;
+    }
+
+    public void setNomeContato(String nomeContato) {
+        NomeContato = nomeContato;
     }
 }
