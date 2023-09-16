@@ -59,4 +59,6 @@ public class SweetAlertFeedbackBehaviour extends JQueryPluginBehavior {
     public void detach(Component component) {
         feedbackModel.detach();
     }
+
+
 }
