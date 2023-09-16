@@ -6,6 +6,14 @@
             <div class="card-body">
                 <h6 class="card-title mb-3">Dados gerais</h6>
                 <div class="row" wicket:id="dadosGerais">
+
+                    <div class="col-12 mb-3">
+                        <label wicket:for="nomeDoContato" class="form-label required">Nome do Contato *</label>
+                        <input wicket:id="nomeDoContato"
+                               required
+                               type="text"
+                               class="form-control">
+                    </div>
                     <div class="col-12 mb-3">
                         <label wicket:for="razaoSocial" class="form-label required">Razão social *</label>
                         <input wicket:id="razaoSocial"

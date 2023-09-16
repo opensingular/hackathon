@@ -12,6 +12,9 @@ public class FornecedorEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    @Column(name = "NOME_DO_CONTATO")
+    private String nomeDoContato;
     @Column(name = "RAZAO_SOCIAL")
     private String razaoSocial;
 
@@ -34,6 +37,14 @@ public class FornecedorEntity implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNomeDoContato() {
+        return nomeDoContato;
+    }
+
+    public void setNomeDoContato(String nomeDoContato) {
+        this.nomeDoContato = nomeDoContato;
     }
 
     public String getRazaoSocial() {
