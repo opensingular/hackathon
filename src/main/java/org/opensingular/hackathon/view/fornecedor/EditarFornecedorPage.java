@@ -17,6 +17,8 @@ import org.opensingular.hackathon.service.FornecedorService;
 import org.opensingular.hackathon.view.base.BasePage;
 import org.opensingular.hackathon.view.util.SweetAlertFeedbackBehaviour;
 
+import java.net.URISyntaxException;
+
 public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
 
     @SpringBean
@@ -88,7 +90,11 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
         return new AjaxFormComponentUpdatingBehavior("change") {
             @Override
             protected void onUpdate(AjaxRequestTarget target) {
-                fornecedorService.carregarPorCep(getModelObject().getEndereco());
+                try {
+                    fornecedorService.carregarPorCep(getModelObject().getEndereco());
+                } catch (URISyntaxException e) {
+                    throw new RuntimeException(e);
+                }
 
 
                 //Aqui está faltando um comando para forçar a atualização da página, dica:

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.net.URISyntaxException;
 
 @Service
 @Transactional
@@ -33,8 +34,10 @@ public class FornecedorService implements CRUDService<FornecedorEntity, Long> {
 
 
 
-    public void carregarPorCep(EnderecoEntity endereco) {
+    public void carregarPorCep(EnderecoEntity endereco) throws URISyntaxException {
         EnderecoDTO dto = viaCepIntegracaoService.buscar(endereco.getCep());
+
+
     }
 }
 
