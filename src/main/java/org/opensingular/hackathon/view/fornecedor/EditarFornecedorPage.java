@@ -16,6 +16,9 @@ import org.opensingular.hackathon.service.FornecedorService;
 import org.opensingular.hackathon.view.base.BasePage;
 import org.opensingular.hackathon.view.util.SweetAlertFeedbackBehaviour;
 
+//import java.awt.*;
+import org.apache.wicket.markup.html.basic.Label;
+
 public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
 
     @SpringBean
@@ -86,6 +89,8 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
             @Override
             protected void onUpdate(AjaxRequestTarget target) {
                 fornecedorService.carregarPorCep(getModelObject().getEndereco());
+                enderecoGroup.setOutputMarkupId(true);
+                target.add(enderecoGroup);
                 //Aqui está faltando um comando para forçar a atualização da página, dica:
                 //https://nightlies.apache.org/wicket/guide/9.x/single.html#_how_to_use_ajax_components_and_behaviors
             }
