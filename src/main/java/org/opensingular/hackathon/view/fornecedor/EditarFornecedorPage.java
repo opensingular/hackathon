@@ -1,5 +1,6 @@
 package org.opensingular.hackathon.view.fornecedor;
 
+import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -88,6 +89,8 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
             @Override
             protected void onUpdate(AjaxRequestTarget target) {
                 fornecedorService.carregarPorCep(getModelObject().getEndereco());
+
+
                 //Aqui está faltando um comando para forçar a atualização da página, dica:
                 //https://nightlies.apache.org/wicket/guide/9.x/single.html#_how_to_use_ajax_components_and_behaviors
             }
