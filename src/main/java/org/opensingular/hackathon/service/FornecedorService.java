@@ -22,11 +22,20 @@ public class FornecedorService implements CRUDService<FornecedorEntity, Long> {
         return fornecedorRepository;
     }
 
+
     /**
      * Preencher os dados da entidade com os dados retornados no serviço
      */
+
     public void carregarPorCep(EnderecoEntity endereco) {
         EnderecoDTO dto = viaCepIntegracaoService.buscar(endereco.getCep());
+        endereco.setCep(dto.getCep());
+        endereco.setBairro(dto.getBairro());
+        endereco.setComplemento(dto.getComplemento());
+        endereco.setUf(dto.getUf());
+        endereco.setLocalidade(dto.getLocalidade());
+        endereco.setBairro(dto.getBairro());
+        endereco.setLogradouro(dto.getLogradouro());
     }
 }
 
