@@ -15,6 +15,13 @@ public class ViaCepIntegracaoService {
      * Utilizar a classe {@link RestTemplate} do SpringFramework
      */
     public EnderecoDTO buscar(String cep) {
-        return new EnderecoDTO();
+        RestTemplate restTemplate = new RestTemplate();
+        if (cep == null || cep.length() == 0) {
+            return new EnderecoDTO();
+        }
+
+        EnderecoDTO enderecoDTO= restTemplate.getForObject("http://viacep.com.br/ws/"+cep+"/json/", EnderecoDTO.class);
+
+        return enderecoDTO;
     }
 }
