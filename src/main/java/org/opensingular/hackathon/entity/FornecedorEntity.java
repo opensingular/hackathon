@@ -15,6 +15,9 @@ public class FornecedorEntity implements Serializable {
     @Column(name = "RAZAO_SOCIAL")
     private String razaoSocial;
 
+    @Column(name = "NOME_CONTATO")
+    private String nomeContato;
+
     @Column(name = "CNPJ")
     private String cnpj;
 
@@ -42,6 +45,12 @@ public class FornecedorEntity implements Serializable {
 
     public void setRazaoSocial(String razaoSocial) {
         this.razaoSocial = razaoSocial;
+    }    public String getNomeContato() {
+        return nomeContato;
+    }
+
+    public void setNomeContato(String nomeContato) {
+        this.nomeContato = nomeContato;
     }
 
     public String getCnpj() {
