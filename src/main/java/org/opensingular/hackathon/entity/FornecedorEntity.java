@@ -18,6 +18,8 @@ public class FornecedorEntity implements Serializable {
     @Column(name = "CNPJ")
     private String cnpj;
 
+    @Column(name = "NOME_DO_CONTATO")
+    private String nomeDoContato;
     @Column(name = "EMAIL_CONTATO")
     private String emailContato;
 
@@ -77,5 +79,13 @@ public class FornecedorEntity implements Serializable {
 
     public void setEndereco(EnderecoEntity endereco) {
         this.endereco = endereco;
+    }
+
+    public String getNomeDoContato() {
+        return nomeDoContato;
+    }
+
+    public void setNomeDoContato(String nomeDoContato) {
+        this.nomeDoContato = nomeDoContato;
     }
 }
