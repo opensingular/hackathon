@@ -27,6 +27,11 @@ public class FornecedorService implements CRUDService<FornecedorEntity, Long> {
      */
     public void carregarPorCep(EnderecoEntity endereco) {
         EnderecoDTO dto = viaCepIntegracaoService.buscar(endereco.getCep());
+        endereco.setLogradouro(dto.getLogradouro());
+        endereco.setUf(dto.getUf());
+        endereco.setLocalidade(dto.getLocalidade());
+        endereco.setBairro(dto.getBairro());
+        endereco.setComplemento(dto.getComplemento());
     }
 }
 
