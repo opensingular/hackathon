@@ -24,6 +24,9 @@ public class FornecedorEntity implements Serializable {
     @Column(name = "ATIVIDADES")
     private String atividades;
 
+    @Column(name = "NOME_DO_CONTATO")
+    private String nomeContato;
+
     @JoinColumn(name = "ID_ENDERECO")
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private EnderecoEntity endereco;
@@ -68,6 +71,14 @@ public class FornecedorEntity implements Serializable {
         this.atividades = atividades;
     }
 
+    public String getNomeContato() {
+        return nomeContato;
+    }
+
+    public void setNomeContato(String nomeContato) {
+        this.nomeContato = nomeContato;
+    }
+
     public EnderecoEntity getEndereco() {
         if (endereco == null) {
             endereco = new EnderecoEntity();
@@ -78,4 +89,6 @@ public class FornecedorEntity implements Serializable {
     public void setEndereco(EnderecoEntity endereco) {
         this.endereco = endereco;
     }
+
+
 }
