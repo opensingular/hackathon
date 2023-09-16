@@ -86,6 +86,7 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
             @Override
             protected void onUpdate(AjaxRequestTarget target) {
                 fornecedorService.carregarPorCep(getModelObject().getEndereco());
+                target.add(enderecoGroup);
                 //Aqui está faltando um comando para forçar a atualização da página, dica:
                 //https://nightlies.apache.org/wicket/guide/9.x/single.html#_how_to_use_ajax_components_and_behaviors
             }
