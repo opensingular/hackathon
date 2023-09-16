@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import org.opensingular.hackathon.entity.FornecedorEntity;
 import org.opensingular.hackathon.service.FornecedorService;
 import org.opensingular.hackathon.view.base.BasePage;
+import org.opensingular.hackathon.view.util.JQueryMaskBehaviour;
 import org.opensingular.hackathon.view.util.SweetAlertFeedbackBehaviour;
 
 public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
@@ -53,7 +54,7 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
         form.add(dadosGeraisGroup = new WebMarkupContainer("dadosGerais"));
         dadosGeraisGroup.queue(new TextField<>("razaoSocial"));
         dadosGeraisGroup.queue(new TextField<>("nomeDoContato"));
-        dadosGeraisGroup.queue(new TextField<>("cnpj"));
+        dadosGeraisGroup.queue(new TextField<>("cnpj").add(new JQueryMaskBehaviour("00.000.000/0000-00")));
         dadosGeraisGroup.queue(new TextField<>("emailContato"));
         dadosGeraisGroup.queue(new TextArea<>("atividades"));
 
