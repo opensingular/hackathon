@@ -24,18 +24,18 @@ public class ViaCepIntegracaoService {
      */
     public EnderecoDTO buscar(String cep) throws URISyntaxException {
 
-        URI uri = new URI("https://viacep.com.br/");
+        URI uri = new URI("https://viacep.com.br/ws/"+cep+"/json");
 
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<Employee[]> responseEntity = restTemplate.getForEntity(uri, Employee[].class);
+        ResponseEntity<EnderecoDTO> responseEntity = restTemplate.getForEntity(uri, EnderecoDTO.class);
 
 
 
 
-        return new EnderecoDTO();
+        return responseEntity.getBody();
     }
 
 
 
-    //exchange(String url, HttpMethod method, HttpEntity<?> requestEntity, Class<T> responseType, Object... uriVariables)
+
 }

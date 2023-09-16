@@ -3,6 +3,7 @@ package org.opensingular.hackathon.view.fornecedor;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
@@ -14,6 +15,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.jetbrains.annotations.NotNull;
 import org.opensingular.hackathon.entity.FornecedorEntity;
 import org.opensingular.hackathon.service.FornecedorService;
+import org.opensingular.hackathon.service.ViaCepIntegracaoService;
 import org.opensingular.hackathon.view.base.BasePage;
 import org.opensingular.hackathon.view.util.SweetAlertFeedbackBehaviour;
 
@@ -97,6 +99,29 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
                 }
 
 
+
+
+
+                        /*       enderecoGroup.add(new TextField<>("endereco.logradouro"));
+        enderecoGroup.add(new TextField<>("endereco.uf"));
+        enderecoGroup.add(new TextField<>("endereco.localidade"));
+        enderecoGroup.add(new TextField<>("endereco.bairro"));
+        enderecoGroup.add(new TextArea<>("endereco.complemento"));*/
+
+                    }
+                };
+
+        new AjaxLink<Void>("ajaxLink"){
+            @Override
+            public void onClick(AjaxRequestTarget target) {
+
+                TextField.updateCollectionModel();
+                target.add(enderecoGroup);
+
+
+
+            }
+        };
                 //Aqui está faltando um comando para forçar a atualização da página, dica:
                 //https://nightlies.apache.org/wicket/guide/9.x/single.html#_how_to_use_ajax_components_and_behaviors
             }

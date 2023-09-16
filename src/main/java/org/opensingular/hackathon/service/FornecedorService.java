@@ -33,10 +33,9 @@ public class FornecedorService implements CRUDService<FornecedorEntity, Long> {
      */
 
 
-
     public void carregarPorCep(EnderecoEntity endereco) throws URISyntaxException {
         EnderecoDTO dto = viaCepIntegracaoService.buscar(endereco.getCep());
-
+        endereco.setBairro(dto.getBairro());
 
     }
 }
