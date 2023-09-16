@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import org.opensingular.hackathon.entity.FornecedorEntity;
 import org.opensingular.hackathon.service.FornecedorService;
 import org.opensingular.hackathon.view.base.BasePage;
+import org.opensingular.hackathon.view.util.JQueryMaskBehaviour;
 import org.opensingular.hackathon.view.util.SweetAlertFeedbackBehaviour;
 
 //import java.awt.*;
@@ -62,7 +63,7 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
 
         form.add(enderecoGroup = new WebMarkupContainer("endereco"));
         enderecoGroup.setOutputMarkupId(true);
-        enderecoGroup.add(new TextField<>("endereco.cep").add(newBuscarPorCep()));
+        enderecoGroup.add(new TextField<>("endereco.cep").add(newBuscarPorCep()).add(new JQueryMaskBehaviour()));
         enderecoGroup.add(new TextField<>("endereco.logradouro"));
         enderecoGroup.add(new TextField<>("endereco.uf"));
         enderecoGroup.add(new TextField<>("endereco.localidade"));
@@ -91,6 +92,7 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
                 fornecedorService.carregarPorCep(getModelObject().getEndereco());
                 enderecoGroup.setOutputMarkupId(true);
                 target.add(enderecoGroup);
+
                 //Aqui está faltando um comando para forçar a atualização da página, dica:
                 //https://nightlies.apache.org/wicket/guide/9.x/single.html#_how_to_use_ajax_components_and_behaviors
             }
