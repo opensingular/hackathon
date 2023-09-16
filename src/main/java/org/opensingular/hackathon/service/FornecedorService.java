@@ -22,9 +22,17 @@ public class FornecedorService implements CRUDService<FornecedorEntity, Long> {
         return fornecedorRepository;
     }
 
+    @Override
+    public void save(FornecedorEntity entity) {
+        CRUDService.super.save(entity);
+    }
+
     /**
      * Preencher os dados da entidade com os dados retornados no serviço
      */
+
+
+
     public void carregarPorCep(EnderecoEntity endereco) {
         EnderecoDTO dto = viaCepIntegracaoService.buscar(endereco.getCep());
     }

@@ -50,7 +50,9 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
         form.add(new SweetAlertFeedbackBehaviour());
 
         WebMarkupContainer dadosGeraisGroup;
+
         form.add(dadosGeraisGroup = new WebMarkupContainer("dadosGerais"));
+        dadosGeraisGroup.queue(new TextField<>("NomeContato"));
         dadosGeraisGroup.queue(new TextField<>("razaoSocial"));
         dadosGeraisGroup.queue(new TextField<>("cnpj"));
         dadosGeraisGroup.queue(new TextField<>("emailContato"));
@@ -58,6 +60,7 @@ public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
 
         form.add(enderecoGroup = new WebMarkupContainer("endereco"));
         enderecoGroup.setOutputMarkupId(true);
+
         enderecoGroup.add(new TextField<>("endereco.cep").add(newBuscarPorCep()));
         enderecoGroup.add(new TextField<>("endereco.logradouro"));
         enderecoGroup.add(new TextField<>("endereco.uf"));
