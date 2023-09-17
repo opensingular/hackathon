@@ -14,81 +14,83 @@ import org.jetbrains.annotations.NotNull;
 import org.opensingular.hackathon.entity.FornecedorEntity;
 import org.opensingular.hackathon.service.FornecedorService;
 import org.opensingular.hackathon.view.base.BasePage;
+import org.opensingular.hackathon.view.util.JQueryMaskBehaviour;
 import org.opensingular.hackathon.view.util.SweetAlertFeedbackBehaviour;
 
 public class EditarFornecedorPage extends BasePage<FornecedorEntity> {
 
-    @SpringBean
-    private FornecedorService fornecedorService;
+	@SpringBean
+	private FornecedorService fornecedorService;
 
-    private Form<FornecedorEntity> form;
+	private Form<FornecedorEntity> form;
 
-    private WebMarkupContainer enderecoGroup;
+	private WebMarkupContainer enderecoGroup;
 
-    public EditarFornecedorPage(PageParameters parameters) {
-        super(parameters);
+	public EditarFornecedorPage(PageParameters parameters) {
+		super(parameters);
 
-        FornecedorEntity fornecedor = null;
+		FornecedorEntity fornecedor = null;
 
-        Long id = parameters.get("id").toOptionalLong();
-        if (id != null) {
-            fornecedor = fornecedorService.findById(id).orElse(null);
-        }
+		Long id = parameters.get("id").toOptionalLong();
+		if (id != null) {
+			fornecedor = fornecedorService.findById(id).orElse(null);
+		}
 
-        if (fornecedor == null) {
-            fornecedor = new FornecedorEntity();
-        }
+		if (fornecedor == null) {
+			fornecedor = new FornecedorEntity();
+		}
 
-        setModel(new CompoundPropertyModel<>(fornecedor));
-    }
+		setModel(new CompoundPropertyModel<>(fornecedor));
+	}
 
-    @Override
-    protected void onInitialize() {
-        super.onInitialize();
+	@Override
+	protected void onInitialize() {
+		super.onInitialize();
 
-        add(form = new Form<>("form", getModel()));
-        form.add(new SweetAlertFeedbackBehaviour());
+		add(form = new Form<>("form", getModel()));
+		form.add(new SweetAlertFeedbackBehaviour());
 
-        WebMarkupContainer dadosGeraisGroup;
-        form.add(dadosGeraisGroup = new WebMarkupContainer("dadosGerais"));
-        dadosGeraisGroup.queue(new TextField<>("razaoSocial"));
-        dadosGeraisGroup.queue(new TextField<>("cnpj"));
-        dadosGeraisGroup.queue(new TextField<>("nomeDoContato"));
-        dadosGeraisGroup.queue(new TextField<>("emailContato"));
-        dadosGeraisGroup.queue(new TextArea<>("atividades"));
+		WebMarkupContainer dadosGeraisGroup;
+		form.add(dadosGeraisGroup = new WebMarkupContainer("dadosGerais"));
+		dadosGeraisGroup.queue(new TextField<>("razaoSocial"));
+		dadosGeraisGroup.queue(new TextField<>("cnpj").add(new JQueryMaskBehaviour("000.000.000-00")));
+		dadosGeraisGroup.queue(new TextField<>("nomeDoContato"));
+		dadosGeraisGroup.queue(new TextField<>("emailContato"));
+		dadosGeraisGroup.queue(new TextArea<>("atividades"));
 
-        form.add(enderecoGroup = new WebMarkupContainer("endereco"));
-        enderecoGroup.setOutputMarkupId(true);
-        enderecoGroup.add(new TextField<>("endereco.cep").add(newBuscarPorCep()));
-        enderecoGroup.add(new TextField<>("endereco.logradouro"));
-        enderecoGroup.add(new TextField<>("endereco.uf"));
-        enderecoGroup.add(new TextField<>("endereco.localidade"));
-        enderecoGroup.add(new TextField<>("endereco.bairro"));
-        enderecoGroup.add(new TextArea<>("endereco.complemento"));
+		form.add(enderecoGroup = new WebMarkupContainer("endereco"));
+		enderecoGroup.setOutputMarkupId(true);
+		enderecoGroup
+				.add(new TextField<>("endereco.cep").add(new JQueryMaskBehaviour("00000-000")).add(newBuscarPorCep()));
+		enderecoGroup.add(new TextField<>("endereco.logradouro"));
+		enderecoGroup.add(new TextField<>("endereco.uf"));
+		enderecoGroup.add(new TextField<>("endereco.localidade"));
+		enderecoGroup.add(new TextField<>("endereco.bairro"));
+		enderecoGroup.add(new TextArea<>("endereco.complemento"));
 
-        form.add(newSubmitButton());
-    }
+		form.add(newSubmitButton());
+	}
 
-    @NotNull
-    private Button newSubmitButton() {
-        return new Button("submit") {
-            @Override
-            public void onSubmit() {
-                super.onSubmit();
-                fornecedorService.save(form.getModelObject());
-                form.success("Dados salvos com sucesso!");
-            }
-        };
-    }
+	@NotNull
+	private Button newSubmitButton() {
+		return new Button("submit") {
+			@Override
+			public void onSubmit() {
+				super.onSubmit();
+				fornecedorService.save(form.getModelObject());
+				form.success("Dados salvos com sucesso!");
+			}
+		};
+	}
 
-    private AjaxFormComponentUpdatingBehavior newBuscarPorCep() {
-        return new AjaxFormComponentUpdatingBehavior("change") {
-            @Override
-            protected void onUpdate(AjaxRequestTarget target) {
-                fornecedorService.carregarPorCep(getModelObject().getEndereco());
+	private AjaxFormComponentUpdatingBehavior newBuscarPorCep() {
+		return new AjaxFormComponentUpdatingBehavior("change") {
+			@Override
+			protected void onUpdate(AjaxRequestTarget target) {
+				fornecedorService.carregarPorCep(getModelObject().getEndereco());
 
-                target.add(enderecoGroup);
-            }
-        };
-    }
+				target.add(enderecoGroup);
+			}
+		};
+	}
 }
